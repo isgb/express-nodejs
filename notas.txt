@@ -1,2 +1,7 @@
 npm i express
 // Instalar material icon theme
+
+// extension visual thunder client para peticiones
+
+// middleware morgan
+npm i morgan
