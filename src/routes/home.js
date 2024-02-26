@@ -17,17 +17,27 @@ const {Router} = require('express')
 // const router = express.Router();
 const router = Router();
 
-router.all('/about', (req,res) => {
-    // res.send('about page')
-
-    const title  = 'Mi primera pagina en express 2';
-
+router.get('/', (req,res) => {
+    // res.send('Dashboard page')
+    const title  = 'Index page';
     res.render('index',{title : title})
 })
 
+router.get('/about', (req,res) => {
+    res.render('about')
+})
+
+// router.all('/about', (req,res) => {
+//     // res.send('about page')
+
+//     const title  = 'Acerca de';
+
+//     res.render('index',{title : title})
+// })
+
 router.get('/dashboard', (req,res) => {
     // res.send('Dashboard page')
-    res.render('Dashboard')
+    res.render('dashboard')
 })
 
 module.exports = router
