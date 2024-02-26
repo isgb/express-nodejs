@@ -162,23 +162,33 @@
 // -------------------------------------------------
 
 const express = require('express');
-const morgan = require('morgan')
+const morgan = require('morgan');
+const path = require('path');
+require('ejs')
 
 const app = express();
+
+const HomeRoutes = require('./routes/home')
+const UserRoutes = require('./routes/users')
+
+// settings
+app.set('appName','Express course')
+app.set('port',3000)
+app.set('case sensitive routing',true)
+app.set('view engine','ejs')
+app.set('views',path.join(__dirname,'views'))
 
 app.use(express.json())
 app.use(morgan('dev'))
 
+// HomeRoutes(app)
+// UserRoutes(app)
+
+app.use(HomeRoutes)
+app.use(UserRoutes)
+
 app.get('/note.txt', (req,res) => {
     res.send('este no es un archivo')
-})
-
-app.get('/profile', (req,res) => {
-    res.send('profile page')
-})
-
-app.get('/about', (req,res) => {
-    res.send('about page')
 })
 
 // Middlewares
@@ -190,24 +200,32 @@ app.use((req,res,next) => {
     next();
 })
 
-app.use((req,res,next) => {
+// app.use((req,res,next) => {
 
-    if(req.query.login === "fazt@faztweb.com"){
-        next();
-    }
-    else{
-        res.send('No autorizado')
-    }
-})
+//     if(req.query.login === "fazt@faztweb.com"){
+//         next();
+//     }
+//     else{
+//         res.send('No autorizado')
+//     }
+// })
 
-app.get('/dashboard', (req,res) => {
-    res.send('Dashboard page')
-})
+// app.get('/dashboard', (req,res) => {
+//     res.send('Dashboard page')
+// })
 
-app.use('/public',express.static('./public'));
+// console.log("test",__dirname)
+
+// app.use('/public',express.static('./src/public'));
+// app.use('/uploads',express.static('./src/uploads'));
+
+app.use('/public',express.static(path.join(__dirname,'public')));
+app.use('/uploads',express.static(path.join(__dirname,'uploads')));
+
+
 
 app.listen(3000)
 console.log(`Server on port ${3000}`)
 
 // Express Framework de Nodejs, Curso para principiantes (Javascript en el backend)
-// 2:56:24
+// 3:20:59 / 4:00:29

@@ -5,3 +5,9 @@ npm i express
 
 // middleware morgan
 npm i morgan
+
+//template ejs
+npm i ejs
+
+//nodemon
+npm i nodemon -D
