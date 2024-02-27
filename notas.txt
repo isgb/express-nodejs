@@ -11,3 +11,5 @@ npm i ejs
 
 //nodemon
 npm i nodemon -D
+
+npm i mysql2

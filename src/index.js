@@ -164,6 +164,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const connectDB = require('./db');
 require('ejs')
 
 const app = express();
@@ -227,3 +228,5 @@ console.log(`Server on port ${3000}`)
 
 // Express Framework de Nodejs, Curso para principiantes (Javascript en el backend)
 // 3:30:29 / 4:00:29
+
+// PlanetScale database mysql free npm i mysql2

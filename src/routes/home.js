@@ -19,8 +19,15 @@ const router = Router();
 
 router.get('/', (req,res) => {
     // res.send('Dashboard page')
+
+    // Tambien exite handlebar como motor de plantillas
+    let isActive = true;
+
     const title  = 'Index page';
-    res.render('index',{title : title})
+    res.render('index',{
+        title : title,
+        isActive : isActive
+    })
 })
 
 router.get('/about', (req,res) => {
@@ -39,5 +46,11 @@ router.get('/dashboard', (req,res) => {
     // res.send('Dashboard page')
     res.render('dashboard')
 })
+
+
+router.get('/posts', (req,res) => {
+    res.render('posts')
+})
+
 
 module.exports = router

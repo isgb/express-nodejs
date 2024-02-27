@@ -12,6 +12,12 @@
         title
         %>
     </h1>
+
+    <% if (isActive) { %>
+        <p>El servidor esta activo</p>
+    <% } else { %>
+        <p>El servidor esta inactivo</p>
+    <% } %>
     
 </body>
 </html>
