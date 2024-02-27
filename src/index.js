@@ -227,6 +227,5 @@ app.listen(3000)
 console.log(`Server on port ${3000}`)
 
 // Express Framework de Nodejs, Curso para principiantes (Javascript en el backend)
-// 3:30:29 / 4:00:29
-
+// TERMINADO
 // PlanetScale database mysql free npm i mysql2
